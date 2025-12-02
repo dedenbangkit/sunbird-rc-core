@@ -91,3 +91,10 @@ db-data*
 vault-data
 es-data*
 keycloak-mobile*.jar
+
+# Sensitive files
+keys.txt
+.env
+
+# Claude Code
+.claude/

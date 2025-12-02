@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "properties": {
+    "DegreeCertificate": {
+      "$ref": "#/definitions/DegreeCertificate"
+    }
+  },
+  "required": ["DegreeCertificate"],
+  "title": "DegreeCertificate",
+  "definitions": {
+    "DegreeCertificate": {
+      "$id": "#/properties/DegreeCertificate",
+      "type": "object",
+      "title": "University Degree Certificate",
+      "description": "Schema for university degree certificates",
+      "required": ["studentName", "studentId", "degree", "major", "university", "graduationDate"],
+      "properties": {
+        "studentName": {
+          "type": "string",
+          "description": "Full name of the student"
+        },
+        "studentId": {
+          "type": "string",
+          "description": "Unique student identification number"
+        },
+        "degree": {
+          "type": "string",
+          "description": "Type of degree",
+          "enum": ["Bachelor", "Master", "PhD"]
+        },
+        "major": {
+          "type": "string",
+          "description": "Field of study"
+        },
+        "university": {
+          "type": "string",
+          "description": "Name of the university"
+        },
+        "graduationDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of graduation (YYYY-MM-DD)"
+        },
+        "gpa": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4,
+          "description": "Grade Point Average"
+        },
+        "honors": {
+          "type": "string",
+          "enum": ["None", "Cum Laude", "Magna Cum Laude", "Summa Cum Laude"],
+          "description": "Academic honors"
+        },
+        "certificateNumber": {
+          "type": "string",
+          "description": "Unique certificate number"
+        }
+      }
+    }
+  },
+  "_osConfig": {
+    "privateFields": [],
+    "signedFields": [],
+    "indexFields": ["studentId", "certificateNumber"],
+    "uniqueIndexFields": ["certificateNumber"],
+    "systemFields": ["osCreatedAt", "osUpdatedAt", "osCreatedBy", "osUpdatedBy"],
+    "roles": ["admin"],
+    "inviteRoles": ["anonymous"],
+    "ownershipAttributes": []
+  }
+}
